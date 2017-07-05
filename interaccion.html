@@ -12,6 +12,11 @@
             height: 100vh;
             align-items: center;
             justify-content: center;
+            background-color: darkgrey;
+        }
+        h1 {
+            color: darkcyan;
+            position: absolute;
         }
         .pelota {
             width: 100px;
@@ -30,31 +35,36 @@
             color: #fff;
         }
         .pelota.a {
-            background-color: red;
+            background-color: peru;
             left: 0;
         }
         .pelota.b {
-            background-color: blue;
+            background-color:cadetblue;
             right: 0;
         }
         .canasta {
-            border: 1px solid red;
             position: relative;
+            bottom: 8.5%;
             height: 100px;
-            width: 100%;
+            width: calc(100% - 150px);
         }
         .canasta:hover .pelota.a {
-            left: calc(50% - 100px);
+            left: calc(50% - 200px);
+            height: 200px;
+            width: 200px;
         }
         .canasta:hover .pelota.b {
-            right: calc(50% - 100px);            
+            right: calc(50% - 200px);            
+            height: 200px;
+            width: 200px;
         }
     </style>
 </head>
 <body>
+    <h1>Hola, Egipcia</h1>
     <div class="canasta">
-        <div class="pelota a">Hola</div>
-        <div class="pelota b">mundo!</div>
+        <div class="pelota a">Te</div>
+        <div class="pelota b">Amo (=</div>
     </div>
 </body>
 </html>
