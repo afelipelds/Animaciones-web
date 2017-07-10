@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transformación - Puno de Origen</title>
+
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            font-family: Arial;
+        }
+        .container{
+            border: 1px solid purple;
+        }
+        .container:hover .cuadrado{
+            transform-origin: 75% 75%;
+            transform: rotateY(50deg);
+        }
+        .cuadrado{
+            width: 200px;
+            height: 200px;
+            background-color:lightsalmon;
+            margin: 20px;
+            transition: .6s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cuadrado">
+            Soy un cuadrado sexy!
+        </div>
+    </div>
+</body>
+</html>
