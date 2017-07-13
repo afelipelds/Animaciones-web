@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Animación - Sintaxis</title>
+    <title>Animación - Multiples animaciones</title>
 
     <style>
         body{
@@ -14,9 +14,6 @@
             height: 100vh;
             color: white;
             font-family: Arial;
-        }
-        button {
-            
         }
         .container{
             width: 100%;
@@ -35,11 +32,11 @@
             align-items: center;
             justify-content: center;
             transition: .6s;
-            animation-name: cuadrado;
-            animation-duration: 1s;
+            animation-name: cuadrado, rebote;
+            animation-duration: 3s, .3s;
             /*animation-delay: 3s;*/
             animation-iteration-count: infinite;
-            animation-timing-function: ease-in-out;
+            animation-timing-function: linear, ease-in-out;
             /*animation-timing-function: steps();*/
             /*animation-timing-function: cubic-bezier(1, 0, 1, 1);*/
             /*animation-direction: reverse;*/
@@ -56,6 +53,14 @@
             100% {
                 /*opacity: 0;*/
                 left: calc(100% - 240px);
+            }
+        }
+        @keyframes rebote {
+            from {
+                transform: translateY(-100px);
+            }
+            to {
+                transform: translateY(100px) scale(1, .9);
             }
         }
 
