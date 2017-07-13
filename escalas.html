@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animación - detectando CSS con JS</title>
+
+    <style>
+        body{
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            font-family: Arial;
+            background-color: gainsboro;
+        }
+        .container{
+            width: 100%;
+            border: 1px solid goldenrod;
+        }
+        .container:hover .cuadrado{
+            animation-play-state: paused;
+        }
+        .cuadrado{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color:teal;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .6s;
+            animation-name: cuadrado, rebote;
+            animation-duration: 3s, .3s;
+            /*animation-delay: 3s;*/
+            animation-iteration-count: infinite, 10;
+            animation-timing-function: linear, ease-in-out, linear;
+            /*animation-timing-function: steps();*/
+            /*animation-timing-function: cubic-bezier(1, 0, 1, 1);*/
+            /*animation-direction: reverse;*/
+            animation-direction: alternate;
+            /*animation-fill-mode: backwards;*/
+            /*animation-play-state: running;*/
+            position: relative;
+        }
+        @keyframes cuadrado {
+            0% {
+                /*opacity: 1;*/
+                left: 0;
+            }
+            100% {
+                /*opacity: 0;*/
+                left: calc(100% - 240px);
+            }
+        }
+        @keyframes escalera {
+            from {
+                bottom: 0;
+                background-color:teal;
+            }
+            to {
+                bottom: -400px;
+                background-color:burlywood;
+            }
+        }
+        @keyframes rebote {
+            from {
+                transform: translateY(-70px);
+                box-shadow: 0 8px 3px 3px gray;
+            }
+            to {
+                transform: translateY(100px) scale(.9, .8);
+                box-shadow: 0 8px 6px -6px gray;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="cuadrado" class="cuadrado">
+            Soy un cuadrado sexy!
+        </div>
+    </div>
+
+    <script>
+        const $cuadrado = document.getElementById('cuadrado');
+        $cuadrado.addEventListener('animationend', (event) => {
+            console.log(event.animationName);
+            if (event.animationName === 'rebote') {
+                $cuadrado.style.animationName = 'cuadrado, rebote, escalera';
+                $cuadrado.style.animationDuration = '3s, .3s, 3s';
+                $cuadrado.style.animationIterationCount = 'infinite, infinite, 2';
+            }
+        });
+    </script>
+</body>
+</html>
