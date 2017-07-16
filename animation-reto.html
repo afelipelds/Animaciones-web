@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reto de Animaciones</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200" rel="stylesheet"> 
+
+    <style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100vh;
+        font-family: Arial;
+        background-color: gainsboro;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .padre {
+        background-color: firebrick;
+        text-align: center;
+        border-radius: 50%;
+    }
+    .container {
+        transition: 1.1s;
+        will-change: transform, transform-origin;
+        transition: .38s;
+        transform: rotate(60deg);
+        margin: 30px;
+    }
+    .objeto {
+        width: 130px;
+        height: 130px;
+        font-size: 17px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: .3s;
+        opacity: 0;
+        will-change: opacity, transform;
+        animation-duration: 1s;
+        animation-direction: alternate;
+        /*animation-delay: 5s;*/
+        /*animation-iteration-count: infinite;*/
+    }
+    .padre:hover .container{
+        transform-origin: top right;
+        transform: rotate(-60deg);
+    }
+    .container:hover {
+        border-radius: 50%;
+        background-color: deepskyblue;
+    }
+    .container:hover .objeto {
+        opacity: 1;
+        transform: rotate(60deg);
+    }
+        @keyframes objeto {
+            from {
+                transform: rotate(120deg);
+                color: deepskyblue;
+            }
+            to {
+                transform: rotate(60deg);
+                color: orangered;
+            }
+        }
+
+        @keyframes objeto2 {
+            from {
+            }
+            to {
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="padre">
+        <h4>Entra acá<br> y recorre <br> éste borde -></h4>
+        <div class="container">
+            <div id="objeto" class="objeto">
+                Objeto 1
+            </div>
+        </div>
+        <div class="container">
+            <div id="objeto2" class="objeto">
+                Objeto 2
+            </div>
+        </div>
+        <div class="container">
+            <div id="objeto3" class="objeto">
+                Objeto 3
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        "use strictS";
+        const objeto = document.getElementById('objeto');
+        objeto.addEventListener('mouseenter', (ev) => {
+            ev.preventDefault;
+            
+            if (ev) {
+                console.log('Entraron!');
+                objeto.style.animationName = 'objeto';
+            }
+            
+            // objeto.style.animationName = '';
+        });
+
+        const objeto2 = document.getElementById('objeto2');
+        objeto2.addEventListener('click', (ev) => {
+            ev.preventDefault;
+            if(ev) {
+                console.log('Click!')
+                objeto.style.animationName = 'objeto, objeto2';
+            }
+        });
+    </script>
+</body>
+</html>
